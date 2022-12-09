@@ -308,11 +308,11 @@ nav ul.drop {
 .card-text-block-scroll-h30 {
   overflow: auto;
   padding: 8px;
-  height: 20vh;
+  height: 90px;
 }
 
 .card-text-block-scroll-h30 {
-  height: 30vh;
+  height: 130px;
 }
 
 .card-image-screenshot {
