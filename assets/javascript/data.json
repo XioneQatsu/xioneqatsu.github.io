@@ -1,0 +1,64 @@
+{
+  "home": [
+    {
+      "id": "aNH",
+      "name": "Alternative code nuclear:v",
+      "image": "https://xioneqatsu.github.io/AlternativeNH/assets/image/alternativeNH.png",
+      "link": "https://xioneqatsu.github.io/AlternativeNH"
+    }
+  ],
+  "about": {
+    "name": "About me!",
+    "description": [
+      {
+        "text": "Hello everyone!"
+      },
+      {
+        "text": "Welcome to my website and this website is still under development. My hobbies are playing games, watching anime, reading comics, and programing:D"
+      },
+      {
+        "text": ""
+      },
+      {
+        "text": "I hope you like my work:) and thanks for coming in here."
+      }
+    ],
+    "social": [
+      {
+        "text": "Follow my media social:"
+      },
+      {
+        "id": "fb",
+        "name": "Facebook",
+        "link": "https://www.facebook.com/xione.qatsu.7"
+      }
+    ],
+    "changelogs": [
+      {
+        "date": "2. ( 09-12-2022 )",
+        "changelog": [
+          {
+            "text":"- Update and fix some UI and experience."
+          },
+          {
+            "text":"- Add about drop down menu."
+          },
+          {
+            "text":"- Remove icon \"Font Awesome\"."
+          },
+          {
+            "text":""
+          }
+        ]
+      },
+      {
+        "date": "1. ( 09-08-2022 )",
+        "changelog": [
+          {
+            "text":"- Released."
+          }
+        ]
+      }
+    ]
+  }
+}
