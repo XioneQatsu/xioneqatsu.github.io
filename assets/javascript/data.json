@@ -1,10 +1,16 @@
 {
   "home": [
     {
-      "id": "aNH",
+      "id": "WSMCBE",
+      "name": "Wedang shaders",
+      "image": "https://xioneqatsu.github.io/Wedang-shaders/assets/image/alternativeNH.png",
+      "url": "https://xioneqatsu.github.io/Wedang-shaders/index.html"
+    },
+    {
+      "id": "NH",
       "name": "Alternative code nuclear:v",
       "image": "https://xioneqatsu.github.io/AlternativeNH/assets/image/alternativeNH.png",
-      "link": "https://xioneqatsu.github.io/AlternativeNH"
+      "url": "https://xioneqatsu.github.io/AlternativeNH/index.html"
     }
   ],
   "about": {
@@ -20,7 +26,7 @@
         "text": ""
       },
       {
-        "text": "I hope you like my work:) and thanks for coming in here."
+        "text": "I hope you like my work :) and thanks for coming in here."
       }
     ],
     "social": [
@@ -41,13 +47,10 @@
             "text":"- Update and fix some UI and experience."
           },
           {
-            "text":"- Add about drop down menu."
+            "text":"- Add \"about\" drop down menu."
           },
           {
             "text":"- Remove icon \"Font Awesome\"."
-          },
-          {
-            "text":""
           }
         ]
       },
