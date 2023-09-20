@@ -11,27 +11,8 @@
 </head>
 
 <body>
-  <nav>
-    <div class="nav-text font-color">
-      <h4>Xione Qatsu</h4>
-    </div>
-    <div class="drop-button">
-        <input type="checkbox" id="drop-button">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <ul id="drop-content">
-        <li><div class="card-btn font-color active" id="home">Home</div></li>
-        <li><div class="card-btn font-color" id="about">About</div></li>
-    </ul>
-  </nav>
-  <div class="container" id="content-load"></div>
-  <footer>
-    <p class="font-color">Xione Qatsu ~ 2022</p>
-  </footer>
   <script src="assets/javascript/script.js" crossorigin="anonymous"></script>
-  <script type="text/javascript">home_content();</script>
+  <script type="text/javascript">home_content(); document.getElementById('home').classList.add("active");</script>
 </body>
 
 </html>
