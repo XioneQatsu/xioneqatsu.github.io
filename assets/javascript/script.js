@@ -1,77 +1,110 @@
+const homeSrc = 'https://xioneqatsu.github.io/';
 
-document.querySelector('\u0023\u0064\u0072\u006f\u0070\u002d\u0062\u0075\u0074\u0074\u006f\u006e').onclick = () => {
-  document.querySelector('\u0023\u0064\u0072\u006f\u0070\u002d\u0063\u006f\u006e\u0074\u0065\u006e\u0074').classList.toggle('\u0064\u0072\u006f\u0070');
-}
+document.write(`
+<nav>
+  <div class="nav-text font-color">
+    <h4>Xione Qatsu</h4>
+  </div>
+  <div class="drop-button">
+    <input type="checkbox" id="drop-button">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul id="drop-content">
+    <li><div class="card-btn font-color" id="home">Home</div></li>
+    <li><div class="card-btn font-color" id="about">About</div></li>
+  </ul>
+</nav>
+  <div class="container" id="content-load">
+</div>
+<footer>
+  <p class="font-color">Xione Qatsu ~ 2023</p>
+</footer>`);
 
-let home = document.querySelector('\u0023\u0068\u006f\u006d\u0065'), about = document.querySelector('\u0023\u0061\u0062\u006f\u0075\u0074');
+document.querySelector('#drop-button').onclick = () => { document.querySelector('#drop-content').classList.toggle('drop'); };
 
-home.onclick = () => {
-  about.classList.remove('\u0061\u0063\u0074\u0069\u0076\u0065');
-  home.classList.add('\u0061\u0063\u0074\u0069\u0076\u0065');
-
-  home_content();
-}
+const menu = [
+  {
+    id: 'home',
+    url: `${homeSrc}index.html`,
+  },
+  {
+    id: 'about',
+    url: `${homeSrc}about.html`,
+  },
+];
+for (let i = 0; i < menu.length; i++) openLink(menu[i], 'self');
 
 function home_content() {
-  let httpReq = new XMLHttpRequest();
-  httpReq.open('\u0047\u0045\u0054', '\u0068\u0074\u0074\u0070\u0073\u003a\u002f\u002f\u0078\u0069\u006f\u006e\u0065\u0071\u0061\u0074\u0073\u0075\u002e\u0067\u0069\u0074\u0068\u0075\u0062\u002e\u0069\u006f\u002f\u0061\u0073\u0073\u0065\u0074\u0073\u002f\u006a\u0061\u0076\u0061\u0073\u0063\u0072\u0069\u0070\u0074\u002f\u0064\u0061\u0074\u0061\u002e\u006a\u0073\u006f\u006e', true);
-  httpReq.onload = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      let data = JSON.parse(httpReq.responseText).home, content = '';
-
-      data.forEach(data => {
-        content += '\u003c\u0064\u0069\u0076\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0063\u0061\u0072\u0064\u002d\u0063\u006f\u006c\u0075\u006d\u006e\u002d\u0061\u0075\u0074\u006f\u0022\u0020\u0069\u0064\u003d\u0022'+ data.id +'\u0022\u003e\u003c\u0064\u0069\u0076\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0063\u0061\u0072\u0064\u0020\u0072\u0061\u0064\u0069\u0075\u0073\u002d\u0061\u006c\u006c\u0020\u0062\u006f\u0078\u002d\u0073\u0068\u0061\u0064\u006f\u0077\u0022\u003e\u003c\u0064\u0069\u0076\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0063\u0061\u0072\u0064\u002d\u0074\u0065\u0078\u0074\u0020\u0072\u0061\u0064\u0069\u0075\u0073\u002d\u0074\u006c\u0072\u0022\u003e\u003c\u0068\u0034\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0066\u006f\u006e\u0074\u002d\u0063\u006f\u006c\u006f\u0072\u0022>'+ data.name +'\u003c\u002f\u0068\u0034\u003e\u003c\u002f\u0064\u0069\u0076\u003e\u003c\u0069\u006d\u0067\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0063\u0061\u0072\u0064\u002d\u0069\u006d\u0061\u0067\u0065\u002d\u0063\u006f\u006e\u0074\u0065\u006e\u0074\u0020\u0062\u006f\u0072\u0064\u0065\u0072\u002d\u0062\u006c\u0072\u0022\u0020\u0073\u0072\u0063\u003d\u0022'+ data.image +'\u0022\u003e\u003c\u002f\u0064\u0069\u0076\u003e\u003c\u002f\u0064\u0069\u0076\u003e';
-      });
-
-      document.querySelector('\u0023\u0063\u006f\u006e\u0074\u0065\u006e\u0074\u002d\u006c\u006f\u0061\u0064').innerHTML = content;
-      data.forEach(data => { openLink(data, '\u005f\u0073\u0065\u006c\u0066'); });
-    }
-  }
-  httpReq.send();
+  fetch(`${homeSrc}assets/javascript/data.json`)
+  .then(file => file.json())
+  .then(data => {
+    let home = data.home, content = '';
+    home.forEach(data => {
+    content += `
+    <div class="card-column-auto" id="${data.id}">
+      <div class="card radius-all box-shadow">
+        <div class="card-text radius-tlr">
+          <h4 class="font-color">${data.name}</h4>
+        </div>
+        <img class="card-image-content border-blr" src="${data.image}">
+      </div>
+    </div>`;
+    });
+    document.querySelector('#content-load').innerHTML = content;
+    home.forEach(data => { openLink(data, '_self'); });
+  })
+  .catch();
 }
 
-about.onclick = () => {
-  home.classList.remove('\u0061\u0063\u0074\u0069\u0076\u0065');
-  about.classList.add('\u0061\u0063\u0074\u0069\u0076\u0065');
+function about_content() {
+  fetch(`${homeSrc}assets/javascript/data.json`)
+  .then(file => file.json())
+  .then(data => {
+    let aboutData = data.about, description = aboutData.description, social = aboutData.social, changelogs = aboutData.changelogs,
 
-  let httpReq = new XMLHttpRequest();
-  httpReq.open('\u0047\u0045\u0054', '\u0068\u0074\u0074\u0070\u0073\u003a\u002f\u002f\u0078\u0069\u006f\u006e\u0065\u0071\u0061\u0074\u0073\u0075\u002e\u0067\u0069\u0074\u0068\u0075\u0062\u002e\u0069\u006f\u002f\u0061\u0073\u0073\u0065\u0074\u0073\u002f\u006a\u0061\u0076\u0061\u0073\u0063\u0072\u0069\u0070\u0074\u002f\u0064\u0061\u0074\u0061\u002e\u006a\u0073\u006f\u006e', true);
-  httpReq.onload = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      let data = JSON.parse(httpReq.responseText).about, description = data.description, social = data.social, changelogs = data.changelogs;
-      let content = '\u003c\u0064\u0069\u0076\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0063\u0061\u0072\u0064\u002d\u0063\u006f\u006c\u0075\u006d\u006e\u002d\u0032\u0022\u003e\u003c\u0064\u0069\u0076\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0063\u0061\u0072\u0064\u0020\u0072\u0061\u0064\u0069\u0075\u0073\u002d\u0061\u006c\u006c\u0020\u0062\u006f\u0078\u002d\u0073\u0068\u0061\u0064\u006f\u0077\u0022\u003e\u003c\u0064\u0069\u0076\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0063\u0061\u0072\u0064\u002d\u0074\u0065\u0078\u0074\u0020\u0072\u0061\u0064\u0069\u0075\u0073\u002d\u0074\u006c\u0072\u0022\u003e\u003c\u0068\u0033\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0066\u006f\u006e\u0074\u002d\u0063\u006f\u006c\u006f\u0072\u0022\u003e'+ data.name +'\u003c\u002f\u0068\u0033\u003e\u003c\u002f\u0064\u0069\u0076\u003e\u003c\u0064\u0069\u0076\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0063\u0061\u0072\u0064\u002d\u0074\u0065\u0078\u0074\u002d\u0062\u006c\u006f\u0063\u006b\u0020\u0072\u0061\u0064\u0069\u0075\u0073\u002d\u0074\u006c\u0072\u0022\u003e';
+    content = `
+    <div class="card-column-2">
+      <div class="card radius-all box-shadow">
+        <div class="card-text radius-tlr">
+          <h3 class="font-color">${aboutData.name}</h3>
+        </div>
+        <div class="card-text-block radius-tlr">`;
+          description.forEach(data => { content += `<p class="font-color">${data.text}<br></p>`; });
+          content += `<br><p class="font-color">${social[0].text}</p>`;
+          for (let i = 1; i < social.length; i++)
+            content += `<div class="font-color" id="${social[i].id}">- <a class="font-color">${social[i].name}</a></div>`;
+          content += `
+        </div>
+      </div>
+    </div>
+    <div class="card-column-2">
+      <div class="card radius-all box-shadow">
+        <div class="card-text radius-tlr">
+          <h3 class="font-color">Changelogs:</h3>
+        </div>
+        <div class="card-text-block-scroll-h2 radius-tlr">`;
+          changelogs.forEach(data => {
+            content += `<h4 class="font-color">${data.date}</h4>`;
+            data.changelog.forEach(data => { content += `<p class="font-color">${data.text}<br></p>`; });
+            content += '<br>';
+          });
+          document.querySelector('#content-load').innerHTML = content + `
+        </div>
+      </div>
+    </div>`;
 
-      description.forEach(data => {
-        content += '\u003c\u0070\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0066\u006f\u006e\u0074\u002d\u0063\u006f\u006c\u006f\u0072\u0022\u003e'+ data.text +'\u003c\u0062\u0072\u003e\u003c\u002f\u0070\u003e';
-      });
-
-      content += '\u003c\u0062\u0072\u003e\u003c\u0070\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0066\u006f\u006e\u0074\u002d\u0063\u006f\u006c\u006f\u0072\u0022\u003e'+ social[0].text +'\u003c\u002f\u0070\u003e';
-
-      for (let i = 1; i < social.length; i++) {
-        content += '\u003c\u0064\u0069\u0076\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0066\u006f\u006e\u0074\u002d\u0063\u006f\u006c\u006f\u0072\u0022\u0020\u0069\u0064\u003d\u0022'+ social[i].id +'\u0022\u003e\u002d\u0020\u003c\u0061\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0066\u006f\u006e\u0074\u002d\u0063\u006f\u006c\u006f\u0072\u0022\u003e'+ social[i].name +'\u003c\u002f\u0061\u003e\u003c\u002f\u0064\u0069\u0076\u003e';
-      }
-
-      content += '\u003c\u002f\u0064\u0069\u0076\u003e\u003c\u002f\u0064\u0069\u0076\u003e\u003c\u002f\u0064\u0069\u0076\u003e\u003c\u0064\u0069\u0076\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0063\u0061\u0072\u0064\u002d\u0063\u006f\u006c\u0075\u006d\u006e\u002d\u0032\u0022\u003e\u003c\u0064\u0069\u0076\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0063\u0061\u0072\u0064\u0020\u0072\u0061\u0064\u0069\u0075\u0073\u002d\u0061\u006c\u006c\u0020\u0062\u006f\u0078\u002d\u0073\u0068\u0061\u0064\u006f\u0077\u0022\u003e\u003c\u0064\u0069\u0076\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0063\u0061\u0072\u0064\u002d\u0074\u0065\u0078\u0074\u0020\u0072\u0061\u0064\u0069\u0075\u0073\u002d\u0074\u006c\u0072\u0022\u003e\u003c\u0068\u0033\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0066\u006f\u006e\u0074\u002d\u0063\u006f\u006c\u006f\u0072\u0022\u003e\u0043\u0068\u0061\u006e\u0067\u0065\u006c\u006f\u0067\u0073\u003a\u003c\u002f\u0068\u0033\u003e\u003c\u002f\u0064\u0069\u0076\u003e\u003c\u0064\u0069\u0076\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0063\u0061\u0072\u0064\u002d\u0074\u0065\u0078\u0074\u002d\u0062\u006c\u006f\u0063\u006b\u002d\u0073\u0063\u0072\u006f\u006c\u006c\u002d\u0068\u0033\u0030\u0020\u0072\u0061\u0064\u0069\u0075\u0073\u002d\u0074\u006c\u0072\u0022\u003e';
-
-      changelogs.forEach(data => {
-        content += '\u003c\u0068\u0034\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0066\u006f\u006e\u0074\u002d\u0063\u006f\u006c\u006f\u0072\u0022\u003e'+ data.date +'\u003c\u002f\u0068\u0034\u003e';
-        data.changelog.forEach(data => {
-          content += '\u003c\u0070\u0020\u0063\u006c\u0061\u0073\u0073\u003d\u0022\u0066\u006f\u006e\u0074\u002d\u0063\u006f\u006c\u006f\u0072\u0022\u003e'+ data.text +'\u003c\u0062\u0072\u003e\u003c\u002f\u0070\u003e';
-        });
-      });
-
-      document.querySelector('\u0023\u0063\u006f\u006e\u0074\u0065\u006e\u0074\u002d\u006c\u006f\u0061\u0064').innerHTML = content + '\u003c\u002f\u0064\u0069\u0076\u003e\u003c\u002f\u0064\u0069\u0076\u003e\u003c\u002f\u0064\u0069\u0076\u003e';
-      for (let i = 1; i < social.length; i++) openLink(social[i], '\u005f\u0062\u006c\u0061\u006e\u006b');
-    }
-  }
-  httpReq.send();
+    for (let i = 1; i < social.length; i++) openLink(social[i], '_blank');
+  })
+  .catch();
 }
 
 function openLink(data, target) {
   document.getElementById(data.id).onclick = () => {
-    let newElement = document.createElement('\u0061');
+    let newElement = document.createElement('a');
     document.body.appendChild(newElement);
-    newElement.target = open(data.link, target);
+    newElement.target = open(data.url, target);
     document.body.removeChild(newElement);
   }
 }
