@@ -1,8 +1,8 @@
 {
   "home": [
     {
-      "id": "WSMCBE",
-      "name": "Wedang shaders",
+      "id": "WedangShader",
+      "name": "Wedang Shaders",
       "image": "https://xioneqatsu.github.io/Wedang-shaders/assets/image/thumbnail.png",
       "url": "https://xioneqatsu.github.io/Wedang-shaders/index.html"
     }
@@ -14,7 +14,13 @@
         "text": "Hello everyone!"
       },
       {
-        "text": "Welcome to my website and this website is still under development. My hobbies are playing games, watching anime, reading comics, and programing:D"
+        "text": "Welcome to my website and this website is still under development and i don't know when my project will be updated."
+      },
+      {
+        "text": ""
+      },
+      {
+        "text": "I'm still school and yeah I only have a little time for my project, my hobbies are playing game, watching anime, reading comic, and programing:D"
       },
       {
         "text": ""
