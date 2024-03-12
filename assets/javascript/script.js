@@ -48,7 +48,7 @@ function home_content() {
         <div class="card-text radius-tlr">
           <h4 class="font-color">${data.name}</h4>
         </div>
-        <img class="card-image-content border-blr" src="${data.image}">
+        <img class="border-blr" src="${data.image}">
       </div>
     </div>`;
     });
@@ -62,13 +62,22 @@ function about_content() {
   fetch(`${homeSrc}assets/javascript/data.json`)
   .then(file => file.json())
   .then(data => {
-    let aboutData = data.about, description = aboutData.description, social = aboutData.social, changelogs = aboutData.changelogs,
+    let aboutData = data.about,
+      description = aboutData.description,
+      social = aboutData.social,
+      changelogs = aboutData.changelogs,
 
     content = `
     <div class="card-column-2">
       <div class="card radius-all box-shadow">
         <div class="card-text radius-tlr">
-          <h3 class="font-color">${aboutData.name}</h3>
+          <h3 class="font-color">About me!</h3>
+        </div>
+        <div class="card-image-profile" style="margin-top: 10px">
+          <img src="${homeSrc+aboutData.profile}">
+        </div>
+        <div class="card-text" style="margin-bottom: 10px">
+          <h1 class="font-color font-acme">Xione Qatsu</h1>
         </div>
         <div class="card-text-block radius-tlr">`;
           description.forEach(data => { content += `<p class="font-color">${data.text}<br></p>`; });
@@ -105,6 +114,17 @@ function openLink(data, target) {
     let newElement = document.createElement('a');
     document.body.appendChild(newElement);
     newElement.target = open(data.url, target);
+    document.body.removeChild(newElement);
+  }
+}
+
+function copyTextAlert(id, text) {
+  document.getElementById(id).onclick = () => {
+    var newElement = document.createElement('textarea');
+    document.body.appendChild(newElement);
+    newElement.value = text; newElement.select();
+    document.execCommand('copy');
+    alert('Copied to clipboard!');
     document.body.removeChild(newElement);
   }
 }

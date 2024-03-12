@@ -313,6 +313,15 @@ nav ul.drop {
   height: 130px;
 }
 
+.card-image-profile {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-image-profile img {
+  max-width: 128px;
+}
+
 .card-image-screenshot {
   max-width: 100%;
 }
