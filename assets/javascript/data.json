@@ -3,14 +3,14 @@
     {
       "id": "MCBEManifestGenerator",
       "name": "MCBE Manifest Generator",
-      "image": "https://xioneqatsu.github.io/MCBEManifestGenerator/assets/image/thumbnail.png",
-      "url": "https://xioneqatsu.github.io/MCBEManifestGenerator"
+      "image": "https://xioneqatsu.github.io/MCBE-Manifest-Generator/assets/image/thumbnail.png",
+      "url": "https://xioneqatsu.github.io/MCBE-Manifest-Generator"
     },
     {
       "id": "UUIDv4Generator",
       "name": "UUIDv4 Generator",
-      "image": "https://xioneqatsu.github.io/UUIDv4Generator/assets/image/thumbnail.png",
-      "url": "https://xioneqatsu.github.io/UUIDv4Generator"
+      "image": "https://xioneqatsu.github.io/UUIDv4-Generator/assets/image/thumbnail.png",
+      "url": "https://xioneqatsu.github.io/UUIDv4-Generator"
     },
     {
       "id": "WedangShader",
@@ -53,7 +53,7 @@
     ],
     "changelogs": [
       {
-        "date":"3. ( 09-08-2024 )",
+        "date":"3. ( 13-03-2024 )",
         "changelog": [
           {
             "text": "- Add icon and name in about menu."
