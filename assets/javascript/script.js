@@ -19,7 +19,7 @@ document.write(`
   <div class="container" id="content-load">
 </div>
 <footer>
-  <p class="font-color">Xione Qatsu ~ 2023</p>
+  <p class="font-color">Xione Qatsu ~ 2024</p>
 </footer>`);
 
 document.querySelector('#drop-button').onclick = () => { document.querySelector('#drop-content').classList.toggle('drop'); };
