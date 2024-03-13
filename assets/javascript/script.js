@@ -117,14 +117,3 @@ function openLink(data, target) {
     document.body.removeChild(newElement);
   }
 }
-
-function copyTextAlert(id, text) {
-  document.getElementById(id).onclick = () => {
-    var newElement = document.createElement('textarea');
-    document.body.appendChild(newElement);
-    newElement.value = text; newElement.select();
-    document.execCommand('copy');
-    alert('Copied to clipboard!');
-    document.body.removeChild(newElement);
-  }
-}
