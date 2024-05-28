@@ -1,22 +1,28 @@
 {
   "home": [
     {
+      "id": "UnicodeConvertor",
+      "name": "Unicode Convertor",
+      "image": "https://xioneqatsu.github.io/Unicode-convertor/assets/image/thumbnail.png",
+      "url": "https://xioneqatsu.github.io/Unicode-convertor/"
+    },
+    {
       "id": "MCBEManifestGenerator",
       "name": "MCBE Manifest Generator",
       "image": "https://xioneqatsu.github.io/MCBE-Manifest-Generator/assets/image/thumbnail.png",
-      "url": "https://xioneqatsu.github.io/MCBE-Manifest-Generator"
+      "url": "https://xioneqatsu.github.io/MCBE-Manifest-Generator/"
     },
     {
       "id": "UUIDv4Generator",
       "name": "UUIDv4 Generator",
       "image": "https://xioneqatsu.github.io/UUIDv4-Generator/assets/image/thumbnail.png",
-      "url": "https://xioneqatsu.github.io/UUIDv4-Generator"
+      "url": "https://xioneqatsu.github.io/UUIDv4-Generator/"
     },
     {
       "id": "WedangShader",
       "name": "Wedang Shaders",
       "image": "https://xioneqatsu.github.io/Wedang-shaders/assets/image/thumbnail.png",
-      "url": "https://xioneqatsu.github.io/Wedang-shaders/index.html"
+      "url": "https://xioneqatsu.github.io/Wedang-shaders/"
     }
   ],
   "about": {
