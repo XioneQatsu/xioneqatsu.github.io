@@ -1,6 +1,12 @@
 {
   "home": [
     {
+      "id": "MCBEManifestEditor",
+      "name": "MCBE Manifest Editor",
+      "image": "https://xioneqatsu.github.io/MCBE-Manifest-Editor/assets/image/thumbnail.png",
+      "url": "https://xioneqatsu.github.io/MCBE-Manifest-Editor/"
+    },
+    {
       "id": "UnicodeConvertor",
       "name": "Unicode Convertor",
       "image": "https://xioneqatsu.github.io/Unicode-convertor/assets/image/thumbnail.png",
